@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import Swal from "sweetalert2";
 
 export const ContextCart = createContext()
 
@@ -10,6 +11,14 @@ export const ProviderContext = ({ children }) => {
     const addProductCart = (product) => {
 
         const existProduct = cartShopping.find((item) => item.id === product.id)
+
+        Swal.fire({
+            title: "¡Bien Hecho!",
+            text: "Producto Agregado Correctamente",
+            icon: "success"
+        });
+
+
         if (existProduct) {
 
             const newProduct = {
